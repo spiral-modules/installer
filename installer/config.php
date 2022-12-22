@@ -28,6 +28,7 @@ return [
             new Question\CycleBridge(),
             new Question\Serializer(),
             new Question\Mailer(),
+            new Question\RoadRunnerBridge(),
             new Question\RoadRunnerMetrics(),
         ]
     ),
