@@ -39,10 +39,14 @@ final class EnvGroup
 
         $values = [];
         foreach ($this->values as $key => $value) {
-            $values[] = \sprintf('%s=%s', $key, match (true) {
-                \is_bool($value) => \var_export($value, true),
-                default => $value
-            });
+            $values[] = \sprintf(
+                '%s=%s',
+                $key,
+                match (true) {
+                    \is_bool($value) => \var_export($value, true),
+                    default => $value
+                }
+            );
         }
 
         return $comment . \implode(PHP_EOL, $values);
