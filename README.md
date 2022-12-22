@@ -14,7 +14,6 @@ Make sure that your server is configured with following PHP version and extensio
 
 * PHP 8.1+, 64bit
 * [mb-string](https://www.php.net/manual/en/intro.mbstring.php) extension
-* PDO Extension with desired database drivers
 
 ## Installation
 
