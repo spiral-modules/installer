@@ -134,9 +134,7 @@ abstract class AbstractQuestion implements QuestionInterface
 
         if ($this->required !== true && !isset($this->options[0])) {
             $this->options[self::NONE_OPTION] = new Option(
-                name: \count(
-                $this->options
-            ) === 1 ? 'No' : 'None of the above'
+                name: \count($this->options) === 1 ? 'No' : 'None of the above'
             );
         }
     }
