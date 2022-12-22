@@ -157,7 +157,7 @@ final class Configurator extends AbstractInstaller
 
         $content = \str_replace(
             ':next_steps',
-            $nextSteps,
+            \implode(\PHP_EOL, $nextSteps),
             $content
         );
 
