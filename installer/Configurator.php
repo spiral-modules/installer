@@ -52,6 +52,7 @@ final class Configurator extends AbstractInstaller
         $conf->createRoadRunnerConfig();
         $conf->runCommands();
         $conf->showInstructions();
+        $conf->updateReadme();
         $conf->removeInstaller();
         $conf->finalize();
     }
@@ -107,6 +108,62 @@ final class Configurator extends AbstractInstaller
         });
     }
 
+    private function updateReadme(): void
+    {
+        $readme = $this->projectRoot . '/README.md';
+        if (!\file_exists($readme)) {
+            return;
+        }
+
+        $content = \file_get_contents($readme);
+        $content = \str_replace(
+            ':app_name',
+            \sprintf('My super %s application', $this->application->getName()),
+            $content
+        );
+
+        $nextSteps = ['## Next steps'];
+
+        foreach ($this->application->getInstructions() as $index => $instruction) {
+            $nextSteps[] = \sprintf('%d. %s', $index + 1, $instruction);
+        }
+
+        $showPackageInstruction = function (Package $package) use (&$nextSteps): void {
+            if ($package->getInstructions() === []) {
+                return;
+            }
+
+            $nextSteps[] = \sprintf('### %s', $package->getTitle());
+            foreach ($package->getInstructions() as $index => $instruction) {
+                $nextSteps[] = \sprintf('%s. %s', (int)$index + 1, $instruction);
+            }
+        };
+
+        // from required packages
+        foreach ($this->application->getPackages() as $package) {
+            $showPackageInstruction($package);
+        }
+
+        // from installed optional packages
+        foreach ($this->application->getQuestions() as $question) {
+            foreach ($question->getOptions() as $option) {
+                foreach ($option instanceof Option ? $option->getPackages() : [] as $package) {
+                    if ($this->application->isPackageInstalled($package)) {
+                        $showPackageInstruction($package);
+                    }
+                }
+            }
+        }
+
+        $content = \str_replace(
+            ':next_steps',
+            $nextSteps,
+            $content
+        );
+
+        \file_put_contents($readme, $content);
+    }
+
     private function showInstructions(): void
     {
         $this->io->write('  <comment>Next steps:</comment>');
@@ -117,10 +174,11 @@ final class Configurator extends AbstractInstaller
         }
 
         $showPackageInstruction = function (Package $package): void {
-            if ($package->getInstructions() !== []) {
-                $this->io->write(\sprintf('  <comment>%s</comment>', $package->getTitle()));
+            if ($package->getInstructions() === []) {
+                return;
             }
 
+            $this->io->write(\sprintf('  <comment>%s</comment>', $package->getTitle()));
             foreach ($package->getInstructions() as $index => $instruction) {
                 $this->io->write(\sprintf('  %s. %s', (int)$index + 1, $instruction));
             }
