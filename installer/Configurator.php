@@ -113,7 +113,7 @@ final class Configurator extends AbstractInstaller
 
         // from application
         foreach ($this->application->getInstructions() as $index => $instruction) {
-            $this->io->write(\sprintf('  %s. %s', (int) $index + 1, $instruction));
+            $this->io->write(\sprintf('  %s. %s', (int)$index + 1, $instruction));
         }
 
         $showPackageInstruction = function (Package $package): void {
@@ -122,7 +122,7 @@ final class Configurator extends AbstractInstaller
             }
 
             foreach ($package->getInstructions() as $index => $instruction) {
-                $this->io->write(\sprintf('  %s. %s', (int) $index + 1, $instruction));
+                $this->io->write(\sprintf('  %s. %s', (int)$index + 1, $instruction));
             }
         };
 
