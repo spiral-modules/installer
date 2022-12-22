@@ -122,7 +122,7 @@ final class Configurator extends AbstractInstaller
         $nextSteps = ['## Configuration'];
 
         foreach ($this->application->getInstructions() as $index => $instruction) {
-            $nextSteps[] = \sprintf('%d. %s', $index + 1, $instruction);
+            $nextSteps[] = \sprintf('%d. %s', $index + 1, \strip_tags($instruction));
         }
 
         $showPackageInstruction = function (Package $package) use (&$nextSteps): void {
@@ -132,7 +132,7 @@ final class Configurator extends AbstractInstaller
 
             $nextSteps[] = \sprintf('### %s', $package->getTitle());
             foreach ($package->getInstructions() as $index => $instruction) {
-                $nextSteps[] = \sprintf('%s. %s', (int)$index + 1, $instruction);
+                $nextSteps[] = \sprintf('%s. %s', (int)$index + 1, \strip_tags($instruction));
             }
         };
 

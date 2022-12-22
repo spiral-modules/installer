@@ -48,10 +48,21 @@ composer rr:download-protoc
 
 - [**Spiral Framework documentation**](https://spiral.dev/docs)
 - [**RoadRunner documentation**](https://roadrunner.dev/docs)
-- Spiral Framework [community packages](https://github.com/spiral-packages).
-- [Birddog](https://github.com/roadrunner-server/birddog): OpenSource tool for monitoring RoadRunner instances.
-- Support us here: [Link](https://github.com/sponsors/roadrunner-server)
+- [Community packages](https://github.com/spiral-packages).
+- [Birddog](https://github.com/roadrunner-server/birddog) — OpenSource tool for monitoring RoadRunner instances.
+- [Support us](https://github.com/sponsors/roadrunner-server)
 - [Contributing](https://spiral.dev/docs/about-contributing/)
 
-> **Note**:
-> If you have any questions or suggestions join our [discord server](https://discord.gg/TFeEmCs).
+## Support
+
+If you have any questions or need help with the project, please don't hesitate to reach out! You can find us on Discord
+at the following link:
+
+[Discord Server](https://discord.gg/TFeEmCs)
+
+Alternatively, you can create an issue on GitHub to report a bug or request a feature:
+
+[Create an Issue on GitHub](https://github.com/spiral/framework/issues/new/choose)
+
+We welcome any feedback or suggestions you may have, and are always happy to help troubleshoot any issues you may
+encounter.
