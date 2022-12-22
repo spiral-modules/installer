@@ -116,11 +116,8 @@ final class Configurator extends AbstractInstaller
         }
 
         $content = \file_get_contents($readme);
-        $content = \str_replace(
-            ':app_name',
-            \sprintf('My super %s application', $this->application->getName()),
-            $content
-        );
+        $content = \str_replace(':app_name', $this->application->getName(), $content);
+        $content = \str_replace(':date', (new \DateTime())->format('r'), $content);
 
         $nextSteps = ['## Configuration'];
 

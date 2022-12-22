@@ -1,34 +1,24 @@
-# :app_name
+# My super :app_name application
 
-[**Documentation**](https://spiral.dev/docs) | [Discord](https://discord.gg/TFeEmCs) | [Twitter](https://twitter.com/spiralphp) | [Contributing](https://spiral.dev/docs/about-contributing/)
-
-## About Spiral Framework
-
-Spiral Framework is a High-Performance Long-Living Full-Stack framework and group of over sixty PSR-compatible
-components. The Framework execution model based on a hybrid runtime where some services (GRPC, Queue, WebSockets, etc.)
-handled by RoadRunner application server and the PHP code of your application stays in memory permanently (anti-memory
-leak tools included).
-
-## Server Requirements
-
-Make sure that your server is configured with following PHP version and extensions:
-
-* PHP 8.1+, 64bit
-* [mb-string](https://www.php.net/manual/en/intro.mbstring.php) extension
+Was created by [spiral/installer](https://github.com/spiral/installer) with `:app_name` skeleton at **:date**.
 
 :next_steps
 
-<br />
+## Usage
 
-After the project has been created and installed, start RoadRunner server using the following command:
+if you need to start RoadRunner server after the project has been configured use the following command:
 
 ```bash
 ./rr serve
 ```
 
+> **Note**:
+> Read more about the RoadRunner CLI commands in the [documentation](https://roadrunner.dev/docs/app-server-cli/2.x/en).
+
 <br />
 
-Once you have started RoadRunner server, your application will be accessible in your web browser at `http://localhost:8080`.
+After starting the RoadRunner server with HTTP plugin, you will be able to access your application in a web
+browser by going to a specific URL: http://127.0.0.1:8080.
 
 ## Console commands
 
@@ -54,6 +44,14 @@ composer rr:download-protoc
 ./vendor/bin/rr download-protoc-binary
 ```
 
-License
---------
-MIT License (MIT). Please see [`LICENSE`](./LICENSE) for more information. Maintained by [Spiral Scout](https://spiralscout.com).
+## Useful resources
+
+- [**Spiral Framework documentation**](https://spiral.dev/docs)
+- [**RoadRunner documentation**](https://roadrunner.dev/docs)
+- Spiral Framework [community packages](https://github.com/spiral-packages).
+- [Birddog](https://github.com/roadrunner-server/birddog): OpenSource tool for monitoring RoadRunner instances.
+- Support us here: [Link](https://github.com/sponsors/roadrunner-server)
+- [Contributing](https://spiral.dev/docs/about-contributing/)
+
+> **Note**:
+> If you have any questions or suggestions join our [discord server](https://discord.gg/TFeEmCs).
