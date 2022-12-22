@@ -4,10 +4,7 @@
 
 ![Installer](https://user-images.githubusercontent.com/773481/208850084-891a9d6f-3e70-4a06-af57-4e63c37c9c47.png)
 
-Spiral Framework is a High-Performance PHP/Go Full-Stack framework and group of over sixty PSR-compatible components.
-The Framework execution model based on a hybrid runtime where some services (GRPC, Queue, WebSockets, etc.) handled by
-Application Server [RoadRunner](https://github.com/roadrunner-server/roadrunner) and the PHP code of your application
-stays in memory permanently (anti-memory leak tools included).
+The package has been developed for the [Spiral Framework](https://github.com/spiral/framework/), providing a convenient command line interface for installing and configuring the framework and any desired packages. This makes it simple for developers to get started with Spiral.
 
 <br />
 
