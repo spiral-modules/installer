@@ -122,7 +122,7 @@ final class Configurator extends AbstractInstaller
             $content
         );
 
-        $nextSteps = ['## Next steps'];
+        $nextSteps = ['## Configuration'];
 
         foreach ($this->application->getInstructions() as $index => $instruction) {
             $nextSteps[] = \sprintf('%d. %s', $index + 1, $instruction);
